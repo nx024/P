@@ -3,226 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pacharanan Portfolio | Minimal Edition</title>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@200;400;600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <title>Pacharanan | Interactive Floral Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&family=Itim&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-bg: #ffffff;
-            --accent-soft: #f8f9fa;
-            --gradient-1: #e0c3fc;
-            --gradient-2: #8ec5fc;
-            --text-main: #2d3436;
-            --text-sub: #636e72;
+            --p-pink: #ffe4e1;
+            --p-blue: #e0f7fa;
+            --p-purple: #f3e5f5;
+            --p-yellow: #fff9c4;
+            --text: #5d4037;
         }
 
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 
         body {
             font-family: 'Sarabun', sans-serif;
+            background: linear-gradient(120deg, var(--p-pink), var(--p-blue));
+            color: var(--text);
             margin: 0;
-            background-color: var(--primary-bg);
-            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             overflow-x: hidden;
         }
 
-        /* พื้นหลังแบบ Blur วงกลมพาสเทล (ทำให้ดูหรูแบบ Apple Style) */
-        .bg-blob {
+        /* ของตกแต่งดอกไม้ */
+        .flower {
             position: fixed;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--gradient-1) 0%, transparent 70%);
-            filter: blur(80px);
-            opacity: 0.4;
+            font-size: 40px;
             z-index: -1;
-            top: -100px;
-            right: -100px;
+            animation: float 6s infinite ease-in-out;
+            opacity: 0.6;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(20deg); }
         }
 
-        .bg-blob-2 {
-            position: fixed;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--gradient-2) 0%, transparent 70%);
-            filter: blur(80px);
-            opacity: 0.3;
-            z-index: -1;
-            bottom: -50px;
-            left: -50px;
+        /* Container หลัก */
+        .portfolio-box {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            width: 90%;
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 40px;
+            border: 8px solid white;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 80px auto;
-            padding: 0 40px;
-        }
-
-        /* Profile Header */
-        header {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            margin-bottom: 80px;
+        /* โปรไฟล์ */
+        .profile-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-top: -100px;
         }
 
         .profile-img {
-            width: 220px;
-            height: 220px;
-            border-radius: 40px; /* ขอบมนแบบทรงสี่เหลี่ยมโค้ง */
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 6px solid white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             background: #eee;
             object-fit: cover;
-            box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
         }
 
-        .intro h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 32pt;
-            margin: 0;
-            font-weight: 500;
-            letter-spacing: -1px;
-            background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        h1 {
+            font-family: 'Itim', cursive;
+            font-size: 28pt;
+            margin: 15px 0 5px 0;
+            color: #d81b60;
         }
 
-        .intro p {
-            font-size: 14pt;
-            color: var(--text-sub);
-            margin-top: 10px;
-        }
-
-        .student-tag {
-            display: inline-block;
-            padding: 5px 15px;
-            background: var(--accent-soft);
-            border-radius: 50px;
-            font-size: 10pt;
-            color: var(--text-sub);
-            border: 1px solid #eee;
-        }
-
-        /* Content Sections */
-        section {
-            margin-bottom: 60px;
-        }
-
-        h2 {
-            font-size: 18pt;
-            font-weight: 600;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        h2::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: #eee;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .card {
-            padding: 30px;
-            border-radius: 24px;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gradient-1);
-        }
-
-        /* Skills Pill */
-        .skills-wrap {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill {
-            padding: 8px 18px;
+        .id-badge {
             background: white;
-            border: 1px solid #eee;
-            border-radius: 50px;
+            padding: 5px 15px;
+            border-radius: 20px;
             font-size: 11pt;
-            color: var(--text-main);
+            color: #888;
+            display: inline-block;
+            margin-bottom: 20px;
         }
 
-        footer {
-            margin-top: 100px;
-            padding: 40px 0;
-            border-top: 1px solid #eee;
-            text-align: center;
+        /* ปุ่มเลือกรายละเอียด (Tabs) */
+        .tab-menu {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            border: none;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Sarabun';
+            font-weight: 600;
+            color: #d81b60;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background: #d81b60;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* เนื้อหาที่สลับได้ */
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 25px;
+            border-radius: 25px;
+            min-height: 200px;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-content.active { display: block; }
+
+        .skill-tag {
+            display: inline-block;
+            background: var(--p-purple);
+            padding: 5px 15px;
+            margin: 5px;
+            border-radius: 15px;
             font-size: 10pt;
-            color: #aaa;
         }
 
-        @media (max-width: 768px) {
-            header { flex-direction: column; text-align: center; gap: 30px; }
-            .grid { grid-template-columns: 1fr; }
-        }
+        footer { margin-top: 30px; font-size: 9pt; color: #aaa; }
     </style>
 </head>
 <body>
-    <div class="bg-blob"></div>
-    <div class="bg-blob-2"></div>
 
-    <div class="container">
-        <header>
+    <!-- ดอกไม้ลอยไปมา -->
+    <div class="flower" style="top: 10%; left: 10%;">🌸</div>
+    <div class="flower" style="top: 20%; right: 15%; animation-delay: 1s;">🌷</div>
+    <div class="flower" style="bottom: 10%; left: 15%; animation-delay: 2s;">🌻</div>
+    <div class="flower" style="bottom: 20%; right: 10%; animation-delay: 1.5s;">🌺</div>
+
+    <div class="portfolio-box">
+        <div class="profile-wrapper">
             <img src="พชรนันท์.jpg" alt="พชรนันท์" class="profile-img">
-            <div class="intro">
-                <div class="student-tag">Student ID: 6650100668</div>
-                <h1>พชรนันท์ อินทร์ตา</h1>
-                <p>Digital Technology & Logistics Student</p>
-                <div style="margin-top: 20px;">
-                    <small>📍 Panyapiwat Institute of Management</small>
-                </div>
-            </div>
-        </header>
-
-        <section>
-            <h2>About Me</h2>
-            <p style="text-indent: 0; font-size: 13pt;">
-                สวัสดีค่ะ พชรนันท์นะคะ นักศึกษาผู้หลงใหลในการผสมผสานระหว่างเทคโนโลยีสมัยใหม่และการจัดการโลจิสติกส์ 
-                ฉันชอบแก้ปัญหาด้วยข้อมูลและเชื่อว่างานออกแบบที่ดีต้องมาพร้อมกับฟังก์ชันการใช้งานที่ยอดเยี่ยม
-            </p>
-        </section>
-
-        <div class="grid">
-            <section>
-                <h2>My Skills</h2>
-                <div class="skills-wrap">
-                    <div class="skill">Creative Strategy</div>
-                    <div class="skill">Data Analysis</div>
-                    <div class="skill-item skill">Excel Mastery</div>
-                    <div class="skill">UX/UI Mindset</div>
-                    <div class="skill">Active Learner</div>
-                </div>
-            </section>
-
-            <section>
-                <h2>Contact</h2>
-                <div class="card">
-                    <p style="margin: 0; text-indent: 0;">
-                        <strong>Email:</strong> pacharanan.i@pim.ac.th<br>
-                        <strong>LinkedIn:</strong> Pacharanan Inta
-                    </p>
-                </div>
-            </section>
         </div>
 
-        <footer>
-            © 2026 PACHARANAN INTA — Built with simplicity
-        </footer>
+        <h1>พชรนันท์ อินทร์ตา</h1>
+        <div class="id-badge">ID: 6650100668</div>
+
+        <div class="tab-menu">
+            <button class="tab-btn active" onclick="openTab(event, 'about')">🏠 เกี่ยวกับฉัน</button>
+            <button class="tab-btn" onclick="openTab(event, 'skills')">✨ ทักษะ</button>
+            <button class="tab-btn" onclick="openTab(event, 'contact')">📱 ติดต่อ</button>
+        </div>
+
+        <!-- รายละเอียดส่วนที่ 1 -->
+        <div id="about" class="tab-content active">
+            <h3 style="color: #ff80ab;">🌸 Hello!</h3>
+            <p>สวัสดีค่ะ ฉันคือนักศึกษาที่รักในความสร้างสรรค์ เรียนที่ <b>PIM</b> ในสาขาที่ผสมผสานระหว่างเทคโนโลยีและโลจิสติกส์ มุ่งมั่นที่จะเรียนรู้สิ่งใหม่ๆ อยู่เสมอค่ะ</p>
+        </div>
+
+        <!-- รายละเอียดส่วนที่ 2 -->
+        <div id="skills" class="tab-content">
+            <h3 style="color: #64b5f6;">🎨 My Skills</h3>
+            <div class="skill-tag">Creative Design</div>
+            <div class="skill-tag">Digital Logistics</div>
+            <div class="skill-tag">Microsoft Excel</div>
+            <div class="skill-tag">AI Tools</div>
+            <div class="skill-tag">Adaptability</div>
+        </div>
+
+        <!-- รายละเอียดส่วนที่ 3 -->
+        <div id="contact" class="tab-content">
+            <h3 style="color: #ba68c8;">📍 Contact Me</h3>
+            <p>Email: pacharanan.i@example.com</p>
+            <p>Instagram: @pachara_space</p>
+            <p>Panyapiwat Institute of Management</p>
+        </div>
+
+        <footer>© 2026 Pacharanan. Created with love & flowers</footer>
     </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 </body>
 </html>
