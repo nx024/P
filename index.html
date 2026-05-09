@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacharanan Portfolio</title>
+    <!-- เชื่อมต่อ Font ภาษาไทย -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pastel-pink: #FFDEE9;
+            --pastel-blue: #B5FFFC;
+            --pastel-purple: #f3e5f5;
+            --text-color: #555;
+            --title-color: #4a4a4a;
+            --accent-color: #7ab8bf;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: #fdfcfb;[cite: 2]
+        }
+
+        /* ส่วนหัวสีพาสเทล */
+        .header-banner {
+            background: linear-gradient(135deg, var(--pastel-pink) 0%, var(--pastel-blue) 100%);[cite: 2]
+            height: 250px;
+            width: 100%;[cite: 2]
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: -120px auto 40px auto;[cite: 2]
+        }
+
+        /* การ์ดโปรไฟล์ */
+        .profile-card {
+            background: white;[cite: 2]
+            padding: 40px;[cite: 2]
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);[cite: 2]
+            text-align: center;[cite: 2]
+        }
+
+        /* รูปภาพโปรไฟล์ */
+        .profile-img-container {
+            width: 180px;
+            height: 180px;
+            background-color: #f0f0f0;[cite: 2]
+            border: 8px solid white;
+            border-radius: 50%;[cite: 2]
+            margin: 0 auto 25px auto;[cite: 2]
+            display: flex;[cite: 2]
+            align-items: center;[cite: 2]
+            justify-content: center;[cite: 2]
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);[cite: 2]
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 26pt;[cite: 2]
+            font-weight: bold;[cite: 2]
+            color: var(--title-color);[cite: 2]
+            margin-bottom: 8px;[cite: 2]
+        }
+
+        .student-id {
+            font-size: 16pt;[cite: 2]
+            color: #888;[cite: 2]
+            margin-bottom: 25px;[cite: 2]
+            letter-spacing: 1px;
+        }
+
+        .divider {
+            height: 3px;
+            width: 60px;
+            background: linear-gradient(to right, var(--pastel-pink), var(--pastel-blue));
+            margin: 20px auto;[cite: 2]
+            border-radius: 2px;
+        }
+
+        /* เนื้อหา */
+        .content-section {
+            margin-top: 35px;[cite: 2]
+            text-align: left;[cite: 2]
+            padding: 0 30px;
+        }
+
+        .section-title {
+            font-size: 18pt;[cite: 2]
+            color: var(--accent-color);[cite: 2]
+            margin-bottom: 18px;[cite: 2]
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        p {
+            line-height: 1.8;[cite: 2]
+            font-size: 13pt;[cite: 2]
+            text-indent: 2em;
+        }
+
+        /* รายการทักษะ */
+        .skill-list {
+            padding: 0;[cite: 2]
+            display: flex;[cite: 2]
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .skill-item {
+            background: var(--pastel-purple);[cite: 2]
+            padding: 10px 20px;[cite: 2]
+            border-radius: 20px;[cite: 2]
+            font-size: 12pt;[cite: 2]
+            color: #7b1fa2;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-3px);
+        }
+
+        /* ข้อมูลติดต่อ */
+        .contact-info {
+            background: #fdf6f9;
+            padding: 25px;[cite: 2]
+            border-radius: 20px;[cite: 2]
+            margin-top: 40px;[cite: 2]
+            border-left: 5px solid var(--pastel-pink);
+            text-align: left;
+        }
+
+        .contact-info strong {
+            color: #d17a9d;
+            font-size: 14pt;
+        }
+
+        .institute-name {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-banner"></div>
+    <div class="container">
+        <div class="profile-card">
+            <div class="profile-img-container">
+                <!-- ใส่รูปภาพชื่อไฟล์ พชรนันท์ ที่นี่ -->
+                <img src="พชรนันท์.jpg" alt="พชรนันท์">[cite: 2]
+            </div>
+            <div class="name">นางสาว พชรนันท์ อินทร์ตา</div>[cite: 2]
+            <div class="student-id">รหัสนักศึกษา: 6650100668</div>[cite: 2]
+            <div class="divider"></div>
+            
+            <div class="content-section">
+                <div class="section-title">🌸 เกี่ยวกับฉัน</div>[cite: 2]
+                <p>
+                    ดิฉันเป็นนักศึกษาที่ให้ความสำคัญกับการเรียนรู้และการพัฒนาตนเองอย่างต่อเนื่อง 
+                    มีความสนใจเป็นพิเศษในด้านเทคโนโลยีดิจิทัลและการบริหารจัดการข้อมูล 
+                    โดยมีความมุ่งมั่นที่จะนำความรู้ที่ได้รับมาประยุกต์ใช้เพื่อสร้างสรรค์นวัตกรรมและผลงานที่มีคุณภาพ[cite: 2]
+                </p>
+            </div>
+
+            <div class="content-section">
+                <div class="section-title">🎨 ทักษะและความสามารถ</div>[cite: 2]
+                <div class="skill-list">
+                    <div class="skill-item">Creative Thinking</div>[cite: 2]
+                    <div class="skill-item">Digital Technology</div>[cite: 2]
+                    <div class="skill-item">Data Management</div>
+                    <div class="skill-item">Microsoft Office Suite</div>[cite: 2]
+                    <div class="skill-item">Adaptability</div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <div class="section-title">🚀 เป้าหมายในอนาคต</div>[cite: 2]
+                <p>
+                    ต้องการเป็นบุคลากรที่มีความเชี่ยวชาญในการใช้เครื่องมือดิจิทัลเพื่อเพิ่มประสิทธิภาพในการทำงาน 
+                    และตั้งใจที่จะสร้างประโยชน์ให้กับองค์กรและสังคมด้วยทักษะการแก้ปัญหาอย่างสร้างสรรค์[cite: 2]
+                </p>
+            </div>
+
+            <div class="contact-info">
+                <strong>📍 ช่องทางการติดต่อ</strong><br>[cite: 2]
+                อีเมล: pacharanan.i@example.com[cite: 2]<br>
+                <div class="institute-name">สถาบันเวทมนต์</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
